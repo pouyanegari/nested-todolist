@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./Task.module.css";
 import {
   faAngleDown,
-  faAngleRight,
   faAnglesDown,
   faAnglesUp,
   faSquarePlus,
@@ -26,11 +25,15 @@ const Task = observer(({ task, parentTasks }) => {
               }
               className={classes.showSubTasksToggelerContainer}
             >
-              {task.showSubTasks ? (
-                <FontAwesomeIcon icon={faAngleDown} />
-              ) : (
-                <FontAwesomeIcon icon={faAngleRight} />
-              )}
+              <FontAwesomeIcon
+                icon={faAngleDown}
+                className={[
+                  classes.showSubTasksToggelerIcon,
+                  task.showSubTasks
+                    ? classes.hideSubTasksIcon
+                    : classes.showSubTasksIcon,
+                ].join(" ")}
+              />
             </span>
           ) : null}
           <input
@@ -49,26 +52,36 @@ const Task = observer(({ task, parentTasks }) => {
         <div className={classes.actionButtonsContainer}>
           <span>
             <FontAwesomeIcon
+              className={
+                task.order === 1
+                  ? classes.disabledIcon
+                  : classes.changeOrderIcon
+              }
               onClick={() => tasksStore.decreaseOrderHandler(task, parentTasks)}
               icon={faAnglesUp}
             />
           </span>
           <span>
             <FontAwesomeIcon
+              className={
+                task.order === parentTasks.length
+                  ? classes.disabledIcon
+                  : classes.changeOrderIcon
+              }
               onClick={() => tasksStore.increaseOrderHandler(task, parentTasks)}
               icon={faAnglesDown}
             />
           </span>
           <span>
             <FontAwesomeIcon
-              className={classes.pointerCursor}
+              className={classes.trashIcon}
               onClick={() => tasksStore.deleteTaskHandler(task, parentTasks)}
               icon={faTrashCan}
             />
           </span>
           <span>
             <FontAwesomeIcon
-              className={classes.pointerCursor}
+              className={classes.plusIcon}
               onClick={() => tasksStore.addSubTaskHandler(task, parentTasks)}
               icon={faSquarePlus}
             />

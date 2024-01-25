@@ -37,9 +37,34 @@
   justify-content: center;
   cursor: pointer;
 }
+.showSubTasksToggelerIcon {
+  transition: all 0.3s ease-out;
+}
+.showSubTasksIcon {
+  transform: rotate(-90deg);
+}
+.hideSubTasksIcon {
+  transform: rotate(0);
+}
 .titleInput {
   padding: 5px;
 }
-.pointerCursor {
+.trashIcon {
+  color: crimson;
+  fill: crimson;
+  cursor: pointer;
+}
+.plusIcon {
+  color: darkgreen;
+  fill: darkgreen;
+  cursor: pointer;
+}
+.disabledIcon {
+  color: rgba(46, 46, 46, 0.289);
+  fill: rgba(46, 46, 46, 0.289);
+}
+.changeOrderIcon {
+  color: steelblue;
+  fill: steelblue;
   cursor: pointer;
 }
