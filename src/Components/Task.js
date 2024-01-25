@@ -25,6 +25,7 @@ const Task = observer(({ task, parentTasks }) => {
             value={task.title}
             onChange={changeTitleHandler}
           />
+          order:{task.order}
         </div>
         <div className={classes.actionButtonsContainer}>
           <span>
@@ -35,7 +36,7 @@ const Task = observer(({ task, parentTasks }) => {
           </span>
           <span>
             <FontAwesomeIcon
-              onClick={increaseOrderHandler}
+              onClick={() => tasksStore.increaseOrderHandler(task, parentTasks)}
               icon={faAnglesDown}
             />
           </span>

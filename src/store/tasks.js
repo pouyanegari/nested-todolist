@@ -70,7 +70,21 @@ export const createTasksStore = () => {
         }
       }
     },
-    increaseOrderHandler() {},
+    increaseOrderHandler(targetedTask, parentTasks) {
+      const increasedTaskIndex = parentTasks.findIndex(
+        (task) => task.id === targetedTask.id
+      );
+      if (increasedTaskIndex > -1) {
+        const currentOrder = parentTasks[increasedTaskIndex].order;
+        if (currentOrder !== parentTasks.length) {
+          const decreasedTaskIndex = parentTasks.findIndex(
+            (task) => task.order === currentOrder + 1
+          );
+          parentTasks[increasedTaskIndex].order++;
+          parentTasks[decreasedTaskIndex].order--;
+        }
+      }
+    },
     changeTitleHandler() {},
   };
 };
