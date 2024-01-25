@@ -1,28 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { observer } from "mobx-react";
-import useStores from "./useStores";
+import { useTasksStore } from "./store/tasksContext";
 
-// TODO - feel free to modify "App" content and develope the solution
-const App = observer(() => {
-  const { TasksStore } = useStores();
+const App = observer(({}) => {
+  const tasksStore = useTasksStore();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://www.digiexpress.ir/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {TasksStore.label}
-        </a>
-      </header>
+    <div className="container">
+      {tasksStore.tasks.map((each) => (
+        <p key={each.id}>{each.title}</p>
+      ))}
+      <p>{tasksStore.counter}</p>
+      <p onClick={() => tasksStore.increase(6)}>Click</p>
     </div>
   );
 });
