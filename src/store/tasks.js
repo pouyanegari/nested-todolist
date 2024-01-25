@@ -52,6 +52,11 @@ export const createTasksStore = () => {
         (task) => task.id === targetedTask.id
       );
       if (targetedTaskIndex > -1) {
+        const targetedTaskOrder = parentTasks[targetedTaskIndex].order;
+        if (targetedTaskOrder !== parentTasks.length)
+          for (const task of parentTasks) {
+            if (task.order > targetedTaskOrder) task.order--;
+          }
         parentTasks.splice(targetedTaskIndex, 1);
       }
     },
