@@ -114,6 +114,11 @@ export const createTasksStore = () => {
         }
       }
     },
-    changeTitleHandler() {},
+    changeTaskTitleHandler(targetedTask, parentTasks, value) {
+      const targetedTaskIndex = parentTasks.findIndex(
+        (task) => task.id === targetedTask.id
+      );
+      if (targetedTaskIndex > -1) parentTasks[targetedTaskIndex].title = value;
+    },
   };
 };

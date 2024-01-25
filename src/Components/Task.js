@@ -12,9 +12,6 @@ import { useTasksStore } from "../store/tasksContext";
 
 const Task = observer(({ task, parentTasks }) => {
   const tasksStore = useTasksStore();
-  const changeTitleHandler = () => {};
-  const increaseOrderHandler = () => {};
-  const decreaseOrderHandler = () => {};
 
   return (
     <div className={classes.container}>
@@ -23,7 +20,13 @@ const Task = observer(({ task, parentTasks }) => {
           <input
             className={classes.titleInput}
             value={task.title}
-            onChange={changeTitleHandler}
+            onChange={(e) =>
+              tasksStore.changeTaskTitleHandler(
+                task,
+                parentTasks,
+                e.target.value
+              )
+            }
           />
           order:{task.order}
         </div>
