@@ -28,11 +28,14 @@ const Task = observer(({ task, parentTasks }) => {
         </div>
         <div className={classes.actionButtonsContainer}>
           <span>
-            <FontAwesomeIcon onClick={increaseOrderHandler} icon={faAnglesUp} />
+            <FontAwesomeIcon
+              onClick={() => tasksStore.decreaseOrderHandler(task, parentTasks)}
+              icon={faAnglesUp}
+            />
           </span>
           <span>
             <FontAwesomeIcon
-              onClick={decreaseOrderHandler}
+              onClick={increaseOrderHandler}
               icon={faAnglesDown}
             />
           </span>
