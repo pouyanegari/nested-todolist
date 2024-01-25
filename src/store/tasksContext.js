@@ -3,7 +3,9 @@ import { useLocalObservable } from "mobx-react";
 import { createTasksStore } from "./tasks";
 
 const TasksContext = createContext({
-  tasks: [{ id: null, order: null, subTasks: [], title: null }],
+  tasks: [
+    { id: null, order: null, showSubTasks: null, subTasks: [], title: null },
+  ],
   changeTaskTitleHandler: () => {},
   increaseOrderHandler: () => {},
   deleteTaskHandler: () => {},

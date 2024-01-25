@@ -1,54 +1,16 @@
 const initialTasks = [
-  // {
-  //   id: "t1",
-  //   title: "practice your project",
-  //   order: 1,
-  //   subTasks: [
-  //     {
-  //       id: "r1",
-  //       title: "wash dishes",
-  //       order: 1,
-  //       subTasks: [
-  //         {
-  //           id: "e4",
-  //           title: "eat lunch",
-  //           order: 1,
-  //           subTasks: [],
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
   {
     id: "t1",
     title: "research1",
     order: 1,
-    subTasks: [
-      // { id: "r2", title: "clean the house", order: 1, subTasks: [] }
-    ],
+    showSubTasks: true,
+    subTasks: [],
   },
   {
     id: "t2",
     title: "research2",
     order: 2,
-    subTasks: [],
-  },
-  {
-    id: "t3",
-    title: "research3",
-    order: 3,
-    subTasks: [],
-  },
-  {
-    id: "t4",
-    title: "research4",
-    order: 4,
-    subTasks: [],
-  },
-  {
-    id: "t5",
-    title: "research5",
-    order: 5,
+    showSubTasks: true,
     subTasks: [],
   },
 ];
@@ -67,6 +29,7 @@ export const createTasksStore = () => {
           id: Math.ceil(Math.random() * 19861245),
           title: "",
           order: newOrder,
+          showSubTasks: true,
           subTasks: [],
         });
       }

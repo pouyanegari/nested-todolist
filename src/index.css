@@ -14,3 +14,8 @@ code {
 * {
   box-sizing: border-box;
 }
+input:focus,
+input:active,
+input {
+  outline: none !important;
+}

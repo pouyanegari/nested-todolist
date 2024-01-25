@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./Task.module.css";
 import {
+  faAngleDown,
+  faAngleRight,
   faAnglesDown,
   faAnglesUp,
   faSquarePlus,
@@ -16,9 +18,19 @@ const Task = observer(({ task, parentTasks }) => {
   return (
     <div className={classes.container}>
       <div className={classes.taskRow}>
-        <div>
+        <div className={classes.leftPartOfRowContainer}>
+          {task.subTasks.length > 0 ? (
+            <span className={classes.pointerCursor}>
+              {task.showSubTasks ? (
+                <FontAwesomeIcon icon={faAngleDown} />
+              ) : (
+                <FontAwesomeIcon icon={faAngleRight} />
+              )}
+            </span>
+          ) : null}
           <input
             className={classes.titleInput}
+            placeholder="task title"
             value={task.title}
             onChange={(e) =>
               tasksStore.changeTaskTitleHandler(
@@ -28,7 +40,6 @@ const Task = observer(({ task, parentTasks }) => {
               )
             }
           />
-          order:{task.order}
         </div>
         <div className={classes.actionButtonsContainer}>
           <span>
@@ -45,12 +56,14 @@ const Task = observer(({ task, parentTasks }) => {
           </span>
           <span>
             <FontAwesomeIcon
+              className={classes.pointerCursor}
               onClick={() => tasksStore.deleteTaskHandler(task, parentTasks)}
               icon={faTrashCan}
             />
           </span>
           <span>
             <FontAwesomeIcon
+              className={classes.pointerCursor}
               onClick={() => tasksStore.addSubTaskHandler(task, parentTasks)}
               icon={faSquarePlus}
             />

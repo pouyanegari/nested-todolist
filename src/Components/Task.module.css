@@ -12,10 +12,16 @@
 .taskRow {
   width: 100%;
   padding: 10px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+}
+.leftPartOfRowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 .actionButtonsContainer {
   display: flex;
@@ -24,4 +30,7 @@
 }
 .titleInput {
   padding: 5px;
+}
+.pointerCursor {
+  cursor: pointer;
 }
