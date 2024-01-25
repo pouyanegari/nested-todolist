@@ -1,19 +1,13 @@
 import "./App.css";
-import { observer } from "mobx-react";
-import { useTasksStore } from "./store/tasksContext";
 
-const App = observer(({}) => {
-  const tasksStore = useTasksStore();
+import TasksList from "./Components/TasksList";
 
+const App = ({}) => {
   return (
     <div className="container">
-      {tasksStore.tasks.map((each) => (
-        <p key={each.id}>{each.title}</p>
-      ))}
-      <p>{tasksStore.counter}</p>
-      <p onClick={() => tasksStore.increase(6)}>Click</p>
+      <TasksList />
     </div>
   );
-});
+};
 
 export default App;

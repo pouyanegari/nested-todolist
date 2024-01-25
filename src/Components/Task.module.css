@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  border: 2px solid steelblue;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+.taskRow {
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.actionButtonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.titleInput {
+  padding: 5px;
+}
