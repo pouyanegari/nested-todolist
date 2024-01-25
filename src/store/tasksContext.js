@@ -4,7 +4,11 @@ import { createTasksStore } from "./tasks";
 
 const TasksContext = createContext({
   tasks: [{ id: null, order: null, subTasks: [], title: null }],
-  addTask: () => {},
+  changeTitleHandler: () => {},
+  increaseOrderHandler: () => {},
+  deleteHandler: () => {},
+  decreaseOrderHandler: () => {},
+  addSubTaskHandler: () => {},
 });
 
 export const TasksProvider = ({ children }) => {

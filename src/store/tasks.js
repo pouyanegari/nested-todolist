@@ -30,5 +30,21 @@ export const createTasksStore = () => {
         ],
       },
     ],
+    addSubTaskHandler(targetedTask, parentTasks) {
+      const targetedTaskIndex = parentTasks.findIndex(
+        (task) => task.id === targetedTask.id
+      );
+      const newOrder = parentTasks[targetedTaskIndex].subTasks.length + 1;
+      parentTasks[targetedTaskIndex].subTasks.push({
+        id: Math.ceil(Math.random() * 19861245),
+        title: "",
+        order: newOrder,
+        subTasks: [],
+      });
+    },
+    deleteHandler() {},
+    decreaseOrderHandler() {},
+    increaseOrderHandler() {},
+    changeTitleHandler() {},
   };
 };

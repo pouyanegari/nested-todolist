@@ -8,8 +8,12 @@ const TasksList = observer(({ subTasks }) => {
   return (
     <>
       {!subTasks
-        ? tasksStore.tasks.map((task) => <Task task={task} key={task.id} />)
-        : subTasks.map((task) => <Task task={task} key={task.id} />)}
+        ? tasksStore.tasks.map((task) => (
+            <Task parentTasks={tasksStore.tasks} task={task} key={task.id} />
+          ))
+        : subTasks.map((task) => (
+            <Task parentTasks={subTasks} task={task} key={task.id} />
+          ))}
     </>
   );
 });

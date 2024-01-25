@@ -8,13 +8,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import TasksList from "./TasksList";
 import { observer } from "mobx-react";
+import { useTasksStore } from "../store/tasksContext";
 
-const Task = observer(({ task }) => {
-  const changeHandler = () => {};
+const Task = observer(({ task, parentTasks }) => {
+  const tasksStore = useTasksStore();
+  const changeTitleHandler = () => {};
   const increaseOrderHandler = () => {};
   const decreaseOrderHandler = () => {};
   const deleteHandler = () => {};
-  const addSubTaskHandler = () => {};
+
   return (
     <div className={classes.container}>
       <div className={classes.taskRow}>
@@ -22,7 +24,7 @@ const Task = observer(({ task }) => {
           <input
             className={classes.titleInput}
             value={task.title}
-            onChange={changeHandler}
+            onChange={changeTitleHandler}
           />
         </div>
         <div className={classes.actionButtonsContainer}>
@@ -39,7 +41,10 @@ const Task = observer(({ task }) => {
             <FontAwesomeIcon onClick={deleteHandler} icon={faTrashCan} />
           </span>
           <span>
-            <FontAwesomeIcon onClick={addSubTaskHandler} icon={faSquarePlus} />
+            <FontAwesomeIcon
+              onClick={() => tasksStore.addSubTaskHandler(task, parentTasks)}
+              icon={faSquarePlus}
+            />
           </span>
         </div>
       </div>
