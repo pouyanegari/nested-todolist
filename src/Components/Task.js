@@ -20,7 +20,12 @@ const Task = observer(({ task, parentTasks }) => {
       <div className={classes.taskRow}>
         <div className={classes.leftPartOfRowContainer}>
           {task.subTasks.length > 0 ? (
-            <span className={classes.pointerCursor}>
+            <span
+              onClick={() =>
+                tasksStore.showHideSubTasksToggeller(task, parentTasks)
+              }
+              className={classes.showSubTasksToggelerContainer}
+            >
               {task.showSubTasks ? (
                 <FontAwesomeIcon icon={faAngleDown} />
               ) : (
@@ -70,7 +75,11 @@ const Task = observer(({ task, parentTasks }) => {
           </span>
         </div>
       </div>
-      {task.subTasks.length > 0 ? <TasksList subTasks={task.subTasks} /> : null}
+      {task.subTasks.length > 0 ? (
+        task.showSubTasks ? (
+          <TasksList subTasks={task.subTasks} />
+        ) : null
+      ) : null}
     </div>
   );
 });

@@ -28,6 +28,15 @@
   align-items: center;
   gap: 20px;
 }
+.showSubTasksToggelerContainer {
+  padding: 5px;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 .titleInput {
   padding: 5px;
 }

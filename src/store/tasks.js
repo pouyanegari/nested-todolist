@@ -83,5 +83,13 @@ export const createTasksStore = () => {
       );
       if (targetedTaskIndex > -1) parentTasks[targetedTaskIndex].title = value;
     },
+    showHideSubTasksToggeller(targetedTask, parentTasks) {
+      const targetedTaskIndex = parentTasks.findIndex(
+        (task) => task.id === targetedTask.id
+      );
+      if (targetedTaskIndex > -1)
+        parentTasks[targetedTaskIndex].showSubTasks =
+          !parentTasks[targetedTaskIndex].showSubTasks;
+    },
   };
 };
