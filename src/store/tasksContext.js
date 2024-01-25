@@ -6,7 +6,7 @@ const TasksContext = createContext({
   tasks: [{ id: null, order: null, subTasks: [], title: null }],
   changeTitleHandler: () => {},
   increaseOrderHandler: () => {},
-  deleteHandler: () => {},
+  deleteTaskHandler: () => {},
   decreaseOrderHandler: () => {},
   addSubTaskHandler: () => {},
 });

@@ -15,7 +15,6 @@ const Task = observer(({ task, parentTasks }) => {
   const changeTitleHandler = () => {};
   const increaseOrderHandler = () => {};
   const decreaseOrderHandler = () => {};
-  const deleteHandler = () => {};
 
   return (
     <div className={classes.container}>
@@ -38,7 +37,10 @@ const Task = observer(({ task, parentTasks }) => {
             />
           </span>
           <span>
-            <FontAwesomeIcon onClick={deleteHandler} icon={faTrashCan} />
+            <FontAwesomeIcon
+              onClick={() => tasksStore.deleteTaskHandler(task, parentTasks)}
+              icon={faTrashCan}
+            />
           </span>
           <span>
             <FontAwesomeIcon
