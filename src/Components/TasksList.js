@@ -8,12 +8,20 @@ const TasksList = observer(({ subTasks }) => {
   return (
     <>
       {!subTasks
-        ? tasksStore.tasks.map((task) => (
-            <Task parentTasks={tasksStore.tasks} task={task} key={task.id} />
-          ))
-        : subTasks.map((task) => (
-            <Task parentTasks={subTasks} task={task} key={task.id} />
-          ))}
+        ? [...tasksStore.tasks]
+            .sort((a, b) =>
+              a.order > b.order ? 1 : b.order > a.order ? -1 : 0
+            )
+            .map((task) => (
+              <Task parentTasks={tasksStore.tasks} task={task} key={task.id} />
+            ))
+        : [...subTasks]
+            .sort((a, b) =>
+              a.order > b.order ? 1 : b.order > a.order ? -1 : 0
+            )
+            .map((task) => (
+              <Task parentTasks={subTasks} task={task} key={task.id} />
+            ))}
     </>
   );
 });

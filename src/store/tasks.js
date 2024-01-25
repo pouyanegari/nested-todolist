@@ -20,12 +20,36 @@ const initialTasks = [
   //   ],
   // },
   {
-    id: "t2",
-    title: "research",
-    order: 2,
+    id: "t1",
+    title: "research1",
+    order: 1,
     subTasks: [
       // { id: "r2", title: "clean the house", order: 1, subTasks: [] }
     ],
+  },
+  {
+    id: "t2",
+    title: "research2",
+    order: 2,
+    subTasks: [],
+  },
+  {
+    id: "t3",
+    title: "research3",
+    order: 3,
+    subTasks: [],
+  },
+  {
+    id: "t4",
+    title: "research4",
+    order: 4,
+    subTasks: [],
+  },
+  {
+    id: "t5",
+    title: "research5",
+    order: 5,
+    subTasks: [],
   },
 ];
 
