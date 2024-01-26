@@ -1,23 +1,6 @@
-const initialTasks = [
-  {
-    id: "t1",
-    title: "research1",
-    order: 1,
-    showSubTasks: true,
-    subTasks: [],
-  },
-  {
-    id: "t2",
-    title: "research2",
-    order: 2,
-    showSubTasks: true,
-    subTasks: [],
-  },
-];
-
 export const createTasksStore = () => {
   return {
-    tasks: initialTasks,
+    tasks: [],
     // Since We are allowed to mutate state while using MobX and actually it prefers mutation we'll mutate or tasks array
     addSubTaskHandler(targetedTask, parentTasks) {
       const targetedTaskIndex = parentTasks.findIndex(
@@ -33,6 +16,16 @@ export const createTasksStore = () => {
           subTasks: [],
         });
       }
+    },
+    addTaskHandler() {
+      const newOrder = this.tasks.length + 1;
+      this.tasks.push({
+        id: Math.ceil(Math.random() * 19861245),
+        title: "",
+        order: newOrder,
+        showSubTasks: true,
+        subTasks: [],
+      });
     },
     deleteTaskHandler(targetedTask, parentTasks) {
       const targetedTaskIndex = parentTasks.findIndex(

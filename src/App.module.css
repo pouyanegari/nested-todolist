@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+.addTaskBtn {
+  background-color: rgb(210, 217, 231);
+  border: 2px solid steelblue;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}

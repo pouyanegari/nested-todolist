@@ -12,6 +12,7 @@ const TasksContext = createContext({
   decreaseOrderHandler: () => {},
   addSubTaskHandler: () => {},
   showHideSubTasksToggeller: () => {},
+  addTaskHandler: () => {},
 });
 
 export const TasksProvider = ({ children }) => {

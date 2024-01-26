@@ -35,7 +35,9 @@ const Task = observer(({ task, parentTasks }) => {
                 ].join(" ")}
               />
             </span>
-          ) : null}
+          ) : (
+            <span className={classes.emptySpace} />
+          )}
           <input
             className={classes.titleInput}
             placeholder="task title"

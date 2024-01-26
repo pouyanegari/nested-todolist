@@ -37,6 +37,11 @@
   justify-content: center;
   cursor: pointer;
 }
+.emptySpace {
+  padding: 5px;
+  width: 17px;
+  height: 17px;
+}
 .showSubTasksToggelerIcon {
   transition: all 0.3s ease-out;
 }

@@ -17,8 +17,13 @@ code {
 * {
   box-sizing: border-box;
 }
+input:hover,
 input:focus,
 input:active,
-input {
+input,
+button,
+button:focus,
+button:active,
+button:hover {
   outline: none !important;
 }
